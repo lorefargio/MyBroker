@@ -1,37 +1,13 @@
 import NextAuth from "next-auth"
-import Credentials from "next-auth/providers/credentials"
-import type { Provider } from "next-auth/providers"
-import GitHub from "next-auth/providers/github"
-import Google from "next-auth/providers/google";  
-const providers: Provider[] = [
-  Google,
-  GitHub,
-  Credentials({
-    credentials: {password: {label:"Password", type : "password"}},
-    authorize(c) {
-      if (c.password !== "password") return null
-      return {
-        id: "test",
-        name: "Test User",
-        email: "test@example.com",
-      }
-    },
-  }),
-]
+import authConfig from "./auth.config"
+ 
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { db } from "@/lib/db" 
 
-export const providerMap = providers.map((provider) => {
-  if (typeof provider === "function") {
-    const providerData = provider()
-    return { id: providerData.id, name: providerData.name }
-  } else {
-    return { id: provider.id, name: provider.name }
-  }
-})
-
+ 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  providers,
-  pages: {
-    signIn: "/login",
-  },
+  adapter: PrismaAdapter(db),
+  session: { strategy: "jwt" },
+  ...authConfig,
 })
 
