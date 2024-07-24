@@ -1,20 +1,24 @@
 import LoginForm from "../ui/login-form";
 import NameHeader from "../ui/name-header"
+import { redirect } from "next/navigation";
+import { signIn, auth, providerMap } from "../../auth";
+import { AuthError } from "next-auth";
 
 export default function LoginPage() {
     return (
+        
         <div className="flex flex-col min-h-[100dvh]">
             <NameHeader/>
-            <div className="flex items-center justify-center bg-muted px-4 py-12 sm:px-6 lg:px-8 flex-1">
-                <div className="mx-auto w-full max-w-md space-y-8">
-                    <div>
-                        <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
-                        Log in to your account
-                        </h2>
-                    </div>
-                    <LoginForm/>
+
+            <main className="flex-1 bg-muted">
+                <div className="container mx-auto flex h-full flex-col items-center justify-center px-4 py-12 sm:px-4 lg:px-8">
+        
+                    <LoginForm></LoginForm>
+                    
                 </div>
-            </div>
+            </main>
+
         </div>
     ) ;
 }
+
