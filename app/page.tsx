@@ -6,8 +6,6 @@ export default function Page() {
   
     <div className="flex min-h-[100dvh] flex-col">
 
-      <NameHeader/>
-
       <main className="flex-1 bg-muted">
 
         <div className="container mx-auto flex h-full flex-col items-center justify-center px-4 py-12 sm:px-4 lg:px-8">
@@ -26,7 +24,7 @@ export default function Page() {
                 Log In
               </Link>
               <Link
-                href="#"
+                href="/register"
                 className="inline-flex items-center rounded-md bg-background px-6 py-3 text-base font-medium text-foreground shadow-sm transition-colors 
                 hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                 prefetch={false}
