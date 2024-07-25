@@ -1,7 +1,8 @@
 import { auth, signOut } from "../../../auth";
 
-const SettingsPage = async () => {
+const HomePage = async () => {
     const session = await auth()
+
     return ( 
         <div>
             {JSON.stringify(session)}
@@ -18,4 +19,4 @@ const SettingsPage = async () => {
      );
 }
  
-export default SettingsPage;
+export default HomePage;
