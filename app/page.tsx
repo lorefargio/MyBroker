@@ -1,5 +1,4 @@
 import Link from "next/link";
-import NameHeader from "./ui/name-header";
 
 export default function Page() {
   return (
@@ -16,7 +15,7 @@ export default function Page() {
 
             <div className="flex justify-center space-x-4">
               <Link
-                href="/login"
+                href="/auth/login"
                 className="inline-flex items-center rounded-md bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-sm transition-colors 
                 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 prefetch={false}
@@ -24,7 +23,7 @@ export default function Page() {
                 Log In
               </Link>
               <Link
-                href="/register"
+                href="/auth/register"
                 className="inline-flex items-center rounded-md bg-background px-6 py-3 text-base font-medium text-foreground shadow-sm transition-colors 
                 hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                 prefetch={false}

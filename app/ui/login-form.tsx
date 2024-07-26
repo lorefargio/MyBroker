@@ -1,10 +1,12 @@
 'use client'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 import { useForm } from "react-hook-form";
 import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSearchParams } from "next/navigation";
 import * as z from "zod"
 
 import { LoginSchema } from "../../schemas";
@@ -22,7 +24,13 @@ import { FormError } from "./form-error";
 import { FormSuccess } from "./form-success";
 import { login } from "../../actions/login";
 
+
 export default function LoginForm() {
+    const searchParams = useSearchParams() ;
+    const urlError = searchParams.get("error") === "OAuthAccountNotLinked" 
+    ? "Email already in use with different provider"
+    : ""
+
     const [error, setError] = useState<string | undefined>("")
     const [success, setSuccess] = useState<string | undefined>("")
     const [isPending, startTransition] = useTransition() ;
@@ -42,17 +50,8 @@ export default function LoginForm() {
       startTransition(() => {
         login(values)
         .then((data) => {
-          if(data){
-          if(!data.error){
-            setError("") ;
-          }else{
-            setError(data.error);
-          }
-          if(!data.success){
-            setSuccess("");
-          }else{
-            setSuccess(data.success) ;
-          }}  
+          setError(data?.error)
+          setSuccess(data?.success) 
         })
          
       })
@@ -63,7 +62,7 @@ export default function LoginForm() {
       <CardWrapper
         title="Welcome back"
         backButtonLabel="Don't have an account?"
-        backButtonHref="/register"
+        backButtonHref="/auth/register"
         showSocial
       >
         <Form {...form}>
@@ -99,6 +98,11 @@ export default function LoginForm() {
                             type="password" 
                           />
                         </FormControl>
+                        <Button size = "sm" variant="link" asChild className="px-0">
+                          <Link href="/auth/reset">
+                            Forgot password ?
+                          </Link>
+                        </Button>
                       <FormMessage/>
                     </FormItem>)}
                 />

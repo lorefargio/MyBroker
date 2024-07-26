@@ -7,14 +7,32 @@ import { db } from "@/lib/db"
 
  
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  callbacks: {
-    /*async signIn({user}){
+  pages: {
+    signIn: "/auth/login",
+    error: "/auth/error"
+  },
+  events:{
+    async linkAccount({user}){
+      await db.user.update({
+        where: {id: user.id},
+        data: {emailVerified: new Date()}
+      })
+    },
+  }
+  ,callbacks: {
+    async signIn({user, account}){
+      //allow OAuth without verifications
+      if(account?.provider !== "credentials") return true ;
+
       const existingUser = await getUserById(user.id) ;
 
-      if(!existingUser || !existingUser.emailVerified) return false ;
+      //prevent signIn without verifications 
+      if(!existingUser?.emailVerified) return false ;
+
+      //add 2FA check
 
       return true ;
-    },*/
+    },
 
     async session({token,session}){
 
