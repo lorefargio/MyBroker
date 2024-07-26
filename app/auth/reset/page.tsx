@@ -1,7 +1,9 @@
+import ResetForm from "../../ui/reset-form";
+
 export default function ResetPasswordPage() {
     return ( 
         <div>
-            Reset password 
+            <ResetForm/>
         </div>
      );
 }

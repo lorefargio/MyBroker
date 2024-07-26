@@ -36,7 +36,7 @@ export const NewVerificationForm = () => {
 
     useEffect(() => {
        onSubmit() ; 
-    },[])
+    },[onSubmit])
 
     return(
         <CardWrapper title="Confirming your verification" backButtonLabel="Back to login" backButtonHref="/auth/login">
