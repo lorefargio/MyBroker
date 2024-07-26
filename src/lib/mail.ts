@@ -11,7 +11,12 @@ export const sendVerificationEmail = async (
         from: "Acme <onboarding@resend.dev>",
         to: email,
         subject: "Confirm your email",
-        html: `<p>Click <a href="${confirmLink}">here</a> to confirm your email</p>`
+        html: `<div class="bg-white p-6">
+            <header class="mb-6">
+            <h1 class="text-2xl font-bold text-black">MyBroker</h1>
+            </header>
+            
+            <p>Click <a href="${confirmLink}">here</a> to confirm your email</p>`
     });
 }
 
@@ -24,6 +29,13 @@ export const sendPasswordResetEmail = async (
         from: "Acme <onboarding@resend.dev>",
         to: email,
         subject: "Reset your password",
-        html: `<p>Click <a href="${resetLink}">here</a> to reset your password</p>`
+        //html: `<p>Click <a href="${resetLink}">here</a> to reset your password</p>`
+        html: `<div class="bg-white p-6">
+            <header class="mb-6">
+            <h1 class="text-2xl font-bold text-black">MyBroker</h1>
+            </header>
+            
+            <p>Click <a href="${resetLink}">here</a> to reset your password</p>
+            `
     })
 }
