@@ -7,7 +7,7 @@ export default function Page() {
 
       <main className="flex-1 bg-muted">
 
-        <div className="container mx-auto flex h-full flex-col items-center justify-center px-4 py-12 sm:px-4 lg:px-8">
+        <div className="container mx-auto flex h-full flex-col items-center justify-center space-y-40 px-4 py-12 sm:px-4 lg:px-8">
 
           <div className="mx-auto my-auto max-w-2xl space-y-6 text-center mt-20 ">
             <h1 className="text-6xl font-bold tracking-tight text-foreground">Welcome to MyBroker</h1>
@@ -33,7 +33,10 @@ export default function Page() {
             </div>
 
           </div>
-
+          <div className="text-lg text-muted-foreground space-y-4">
+            <p>MyBroker is a web application developed by Fargione Lorenzo, a Computer Science student at the University of Pisa.</p>
+            <p>It combines the knowledge gained from his web application development classes with his passion for personal finance.</p> 
+          </div>
         </div>
 
       </main>
