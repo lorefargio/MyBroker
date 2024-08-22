@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
-import { newVerification } from "../../actions/new-verification"
-import { Loader } from "./loader";
+import { newVerification } from "../../../actions/new-verification"
+import { Loader } from "../loader";
 import { FormSuccess } from "./form-success";
 import { FormError } from "./form-error";
 

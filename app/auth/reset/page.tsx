@@ -1,4 +1,4 @@
-import ResetForm from "../../ui/reset-form";
+import ResetForm from "../../ui/auth/reset-form";
 
 export default function ResetPasswordPage() {
     return ( 

@@ -28,8 +28,8 @@ import { useTransition, useState } from "react";
 import { useSession} from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { useCurrentUser } from "../../../hooks/use-current-user";
-import { FormError } from "../../ui/form-error";
-import { FormSuccess } from "../../ui/form-success";
+import { FormError } from "../../ui/auth/form-error";
+import { FormSuccess } from "../../ui/auth/form-success";
 import { Switch } from "@/components/ui/switch";
 
 

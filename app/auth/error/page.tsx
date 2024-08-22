@@ -1,4 +1,4 @@
-import { ErrorCard } from "../../ui/error-card";
+import { ErrorCard } from "../../ui/auth/error-card";
 import NameHeader from "../../ui/name-header";
 
 const AuthErrorPage = () => {

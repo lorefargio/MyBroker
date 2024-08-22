@@ -1,4 +1,4 @@
-import { NewVerificationForm } from "../../ui/new-verification-form";
+import { NewVerificationForm } from "../../ui/auth/new-verification-form";
 
 const NewVerificationPage = () => {
     return ( 

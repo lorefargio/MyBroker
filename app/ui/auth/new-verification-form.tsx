@@ -1,10 +1,10 @@
 "use client"
 
-import { CardWrapper } from "./card-wrapper"
+import { CardWrapper } from "../card-wrapper"
 import { Suspense} from "react"
 import VerificationContent from "./verification-content"
-import { Loader } from "./loader"
-import { SearchParamsProvider } from "./SearchParamsProvider"
+import { Loader } from "../loader"
+import { SearchParamsProvider } from "../SearchParamsProvider"
 
 export const NewVerificationForm = () => {
 

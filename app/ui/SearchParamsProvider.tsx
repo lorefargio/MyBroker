@@ -1,5 +1,5 @@
 import { useSearchParams } from "next/navigation";
-import { FormError } from "./form-error";
+import { FormError } from "./auth/form-error";
 
 interface SearchParamsProviderProps {
     children: (token: string) => React.ReactNode; // Function that receives the token and returns React nodes
