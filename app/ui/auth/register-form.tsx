@@ -7,7 +7,7 @@ import { useState, useTransition } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod"
 
-import { RegisterSchema } from "../../schemas";
+import { RegisterSchema } from "../../../schemas";
 import {
   Form,
   FormControl,
@@ -17,10 +17,10 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
-import { CardWrapper } from "./card-wrapper";
+import { CardWrapper } from "./../card-wrapper";
 import { FormError } from "./form-error";
 import { FormSuccess } from "./form-success";
-import { register } from "../../actions/register";
+import { register } from "../../../actions/register";
 
 
 export default function RegisterForm() {

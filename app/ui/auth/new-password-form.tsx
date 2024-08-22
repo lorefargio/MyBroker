@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
 import * as z from "zod"
 
-import { NewPasswordSchema } from "../../schemas";
+import { NewPasswordSchema } from "../../../schemas";
 import {
   Form,
   FormControl,
@@ -18,12 +18,12 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
-import { CardWrapper } from "./card-wrapper";
+import { CardWrapper } from "./../card-wrapper";
 import { FormError } from "./form-error";
 import { FormSuccess } from "./form-success";
-import { newPassword } from "../../actions/new-password";
-import { Loader } from "./loader";
-import { SearchParamsProvider } from "./SearchParamsProvider";
+import { newPassword } from "../../../actions/new-password";
+import { Loader } from "./../loader";
+import { SearchParamsProvider } from "./../SearchParamsProvider";
 
 
 export default function NewPasswordForm() {
