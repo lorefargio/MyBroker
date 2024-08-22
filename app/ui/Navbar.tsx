@@ -47,6 +47,20 @@ export const Navbar = () => {
 
             </Button>
 
+            <Button 
+                className="font-bold py-2 px-4 rounded-full"
+                asChild
+                variant={pathname == "/trade" ? "default" : "outline"}>
+
+                    <Link
+                    href="/trade"
+                    className="px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}>
+                    Trade
+                    </Link>
+
+            </Button>
+
             <BalanceButton/>
 
             <UserButton/>
@@ -89,9 +103,27 @@ export const Navbar = () => {
                         </Link>
                 </Button>
 
-                <BalanceButton/>
+                <Button
+                        className="font-bold py-2 px-4 rounded-full"
+                        asChild
+                        variant={pathname == "/trade" ? "default" : "outline"}
+                >
+                        <Link
+                        href="/trade"
+                        className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                        prefetch={false}
+                        >
+                            Trade
+                        </Link>
+                </Button>
 
-                <UserButton/>
+                <div className="flex justify-center">
+                  <BalanceButton/>
+                </div>
+
+                <div className="flex justify-center">
+                  <UserButton/>
+                </div>
               
             </div>
           </SheetContent>

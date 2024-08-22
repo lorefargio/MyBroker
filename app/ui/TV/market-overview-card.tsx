@@ -108,7 +108,7 @@ export const MarketOverviewCard = () => {
     return (
         <Card className="w-full max-w-[400px] h-auto shadow-md mx-auto">
             <CardHeader>
-                <h1 className="text-xl md:text-2xl font-bold">News from around the world</h1>
+                <h1 className="text-xl md:text-2xl font-bold">Macro Markets Overview</h1>
             </CardHeader>
 
             <CardDescription className="gap-y-2">

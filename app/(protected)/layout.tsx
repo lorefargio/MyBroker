@@ -14,7 +14,7 @@ export default async function ProtectedLayout({children} : ProtectedLayoutProps)
             
             <div className="flex-1 bg-muted w-full">
                 <Navbar/>
-                <div className="container w-full mx-auto flex h-full flex-col items-center justify-center px-4 py-12 sm:px-4 lg:px-8">
+                <div className="py-5 sm:px-4">
         
                     {children}
                     
