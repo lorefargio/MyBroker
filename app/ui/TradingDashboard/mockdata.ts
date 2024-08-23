@@ -187,18 +187,27 @@ export interface TimeLine {
 }
 
 export interface DetailsInterface {
-  name?  : string,
+  symbol?: string, 
+  instrument_name?  : string,
   country? : string,
   currency?: string,
   exchange?: string,
-  ipo?: string,
-  marketCapitalization?: number,
+  instrument_type?: string,
+  mic_code?: string
 }
 
 export interface PriceTabInterface {
-  pc? : number,
-  d? : string,
-  dp? : string,
+  symbol: string,
+  pc: number,
+  d: number,
+  dp: number,
+}
+
+export interface PriceTabProp {
+  symbol: string,
+  price: number,
+  change: number,
+  changePercent: number,
 }
 
 export interface ChartData {

@@ -59,7 +59,7 @@ const Chart = () => {
             try {
                const startDate = getDateRange() ;
 
-               const result = await getHistoricalData(symbol) ;
+               const result = await getHistoricalData(symbol.symbol) ;
 
                const formattedData = formatData(result,startDate) ;
 

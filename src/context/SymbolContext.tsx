@@ -1,12 +1,14 @@
 import {createContext} from "react"
+import { DetailsInterface } from "../../app/ui/TradingDashboard/mockdata"
+
 
 interface SymbolContextInterface {
-    symbol : string ,
-    setSymbol( symbol : string) : void ,  
+    symbol : DetailsInterface ,
+    setSymbol( symbol : DetailsInterface) : void ,  
 }
 
 const defaultContextValue: SymbolContextInterface = {
-    symbol: "",
+    symbol: {},
     setSymbol: () => {}, // No-op function
 };
 

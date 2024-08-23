@@ -7,7 +7,7 @@ export const searchSymbol = async (query : string) => {
 
     const response = await fetch(url) ;
 
-    if(!response.ok) throw new Error("Error occurred during searchSymbol API call"+response.status) ;
+    if(!response.ok) throw new Error("Error occurred during searchSymbol API call "+response.status) ;
 
     return await response.json() ;
 }
@@ -17,17 +17,17 @@ export const fetchSymbolDetails = async (symbol : string) => {
     
     const response = await fetch(url) ;
 
-    if(!response.ok) throw new Error("Error occurred during fetchSymbolDetails API call"+response.status) ;
+    if(!response.ok) throw new Error("Error occurred during fetchSymbolDetails API call "+response.status) ;
 
     return await response.json() ;
 }
 
-export const fetchQuote = async (symbol : string) => {
+export const fetchQuote = async (symbol : string | undefined) => {
     const url = `${basePath}/quote?symbol=${symbol}&token=${process.env.FINNHUB_API_KEY}` ;
 
     const response = await fetch(url) ;
 
-    if(!response.ok) throw new Error("Error occurred during fetchQuote API call"+response.status) ;
+    if(!response.ok) throw new Error("Error occurred during fetchQuote API call "+response.status) ;
 
     return await response.json() ;
 }

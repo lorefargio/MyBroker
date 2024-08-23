@@ -5,20 +5,20 @@ import { Input } from "@/components/ui/input";
 import {X, Search} from "lucide-react"
 import { Button } from "@/components/ui/button";
 import SearchResults from "./SearchResults";
-import { searchSymbol } from "@/api/finnhub/stock-api";
+import { getProductList } from "@/api/twelvedata/product-list";
+import { DetailsInterface } from "./mockdata";
 
 const SearchComponent = () => {
     const [input, setInput] = useState("") ;
-    const [bestMatches, setBestMatches] = useState([]);
+    const [bestMatches, setBestMatches] = useState<DetailsInterface[]>([]);
 
     const updateBestMatches = async () => {
 
         try{
             if(input) {
-                const searchResult = await searchSymbol(input) ;
-                const result = searchResult.result ;
+                const searchResult = await getProductList(input) ;
                 
-                setBestMatches(result)
+                setBestMatches(searchResult)
             }
         }catch(e){
             setBestMatches([]) ;
@@ -32,7 +32,7 @@ const SearchComponent = () => {
     }
 
     return ( 
-    <div className="flex items-center my-4 rounded-md relative z-50 w-96 gap-x-2 ">
+    <div className="flex items-center my-4 rounded-md relative z-50 w-80 md:w-96 gap-x-2 ">
             <Input 
             type="text" 
             value={input} 
