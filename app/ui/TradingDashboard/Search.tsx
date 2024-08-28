@@ -32,7 +32,7 @@ const SearchComponent = () => {
     }
 
     return ( 
-    <div className="flex items-center my-4 rounded-md relative z-50 w-80 md:w-96 gap-x-2 ">
+    <div className="flex items-center my-4 rounded-md z-10 relative w-80 md:w-96 gap-x-2 ">
             <Input 
             type="text" 
             value={input} 
@@ -51,7 +51,7 @@ const SearchComponent = () => {
                 <Search/>
             </Button>
 
-            {input && bestMatches.length > 0 ? (<SearchResults results={bestMatches}/>) : null}   
+            {input && bestMatches.length > 0 ? (<SearchResults results={bestMatches} setResults={updateBestMatches} setInput = {setInput}/>) : null}   
     </div>
     );
 }

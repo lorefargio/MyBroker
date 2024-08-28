@@ -75,7 +75,7 @@ const Chart = () => {
 
     return ( 
         <DashboardCard>
-            <ul className="flex absolute top-2 right-2 z-40 bg-gray-">
+            <ul className="flex absolute top-2 right-2 bg-gray-">
                 {Object.keys(ChartConfig).map((item) => {
                     return(
                     <li key={item}>

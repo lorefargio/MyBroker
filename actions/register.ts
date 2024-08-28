@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import { getUserByEmail } from "../data/user";
 import { generateVerificationToken } from "@/lib/tokens";
 import { sendVerificationEmail } from "@/lib/mail";
+import { create } from "domain";
 
 export const register = async (values : z.infer<typeof RegisterSchema>) => {
     const validateFields = RegisterSchema.safeParse(values) ;
@@ -28,6 +29,13 @@ export const register = async (values : z.infer<typeof RegisterSchema>) => {
             name,
             email,
             password : hashedPassword,
+            portfolio : {
+                create : {
+                    stocks : {create : []},
+                    etfs : {create : []},
+                    cryptos : {create: []}
+                }
+            }
         },
     }) ;
 

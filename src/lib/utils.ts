@@ -61,3 +61,21 @@ export function FormatTimeLine(startDate : string, timeLine : TimeLine) : TimeLi
     timeLine.values = newTimelineValues ;
     return timeLine ;
 } 
+
+export function FormatMoney(credit : number | undefined) : string {
+    let creditFixed = Number(credit)
+    let millionare = false ;
+    let billionare = false ;
+
+    if(creditFixed > 1_000_000 && creditFixed < 1_000_000_000){
+        creditFixed = creditFixed/1_000_000 ;
+        millionare = true ;
+    }
+
+    if(creditFixed > 1_000_000_000 ){
+        creditFixed = creditFixed/1_000_000_000 ;
+        billionare = true ;
+    }
+
+    return `${credit ? creditFixed.toFixed(2) : 0} ${millionare ? "M" : billionare ? "B" : ""}$`
+}

@@ -20,6 +20,7 @@ import { FaUser } from "react-icons/fa";
 import { RxExit } from "react-icons/rx";
 import { Cog, Banknote } from "lucide-react";
 import { useCurrentUser } from "../../hooks/use-current-user";
+import { FormatMoney } from "@/lib/utils";
 
 interface BackButtonProps {
     href: string ;
@@ -102,12 +103,13 @@ export const UserButton = () => {
     )
 }
 
-export const BalanceButton = () => {
-    const user = useCurrentUser() ;
+export const BalanceButton = ({credit} : {credit : number | undefined}) => {
+
     return (
         <div className="flex self-center gap-3">
             <Banknote/>
-            <p className="font-bold">Balance : </p> {user?.credit} $
+            <span className="font-bold">Balance : </span> 
+            <span>{FormatMoney(credit)}</span>
         </div>
     );
 }

@@ -31,6 +31,7 @@ import { useCurrentUser } from "../../../hooks/use-current-user";
 import { FormError } from "../../ui/auth/form-error";
 import { FormSuccess } from "../../ui/auth/form-success";
 import { Switch } from "@/components/ui/switch";
+import { FormatMoney } from "@/lib/utils";
 
 
 const SettingPage = () => {
@@ -165,7 +166,7 @@ const SettingPage = () => {
                                     <div className="space-y-0.5">
                                         <FormLabel>How many dollars do you want to add to the MyBroker balance ?</FormLabel>
                                         <FormDescription>
-                                             Your Balance : {user?.credit} $
+                                             <span>Your Balance : {FormatMoney(user?.credit)}</span>
                                         </FormDescription>
                                     </div>
                                     

@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { useState, useTransition, Suspense } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
 import * as z from "zod"
 
 import { NewPasswordSchema } from "../../../schemas";

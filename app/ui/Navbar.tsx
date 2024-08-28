@@ -61,8 +61,6 @@ export const Navbar = () => {
 
             </Button>
 
-            <BalanceButton/>
-
             <UserButton/>
         </nav>
         <Sheet>
@@ -117,9 +115,6 @@ export const Navbar = () => {
                         </Link>
                 </Button>
 
-                <div className="flex justify-center">
-                  <BalanceButton/>
-                </div>
 
                 <div className="flex justify-center">
                   <UserButton/>

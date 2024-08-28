@@ -1,8 +1,14 @@
 import { Button } from "@/components/ui/button";
 import DashboardCard from "./Dashboard-card";
 import { PriceTabProp } from "./mockdata";
+import { useState } from "react";
+import Modal from "./Modal";
+import BuyCard from "./buy-card";
+import SellCard from "./sell-card";
 
 const PriceTab = ({symbol, price, change, changePercent} : PriceTabProp) => {
+    const [isBuyModalOpen, setIsBuyModalOpen] = useState<boolean>(false) ;
+    const [isSellModalOpen, setIsSellModalOpen] = useState<boolean>(false) ;
     return (
     <DashboardCard>
         
@@ -23,9 +29,24 @@ const PriceTab = ({symbol, price, change, changePercent} : PriceTabProp) => {
         </div>
 
         <div className="flex justify-around md:mt-10">
-            <Button className="">Sell</Button>
-            <Button className="bg-gray-400 hover:bg-gray-300">Buy</Button>
+            <Button className="md:w-40" variant={"destructive"} onClick={() => setIsSellModalOpen(true)}>Sell</Button>
+            <Button className="md:w-40 bg-green-500 hover:bg-green-400" onClick={() => setIsBuyModalOpen(true)} >Buy</Button>
         </div>
+
+        {isSellModalOpen && (
+            <Modal isOpen={isSellModalOpen} handleClose={() => setIsSellModalOpen(!isSellModalOpen)}>
+                <div className="flex flex-col justify-between h-full w-full">
+                    <SellCard price={price}/>
+                </div>
+            </Modal>
+        )}
+
+        {isBuyModalOpen && (
+            <Modal isOpen={isBuyModalOpen} handleClose={() => setIsBuyModalOpen(!isBuyModalOpen)}>
+                <BuyCard price={price}/>
+            </Modal>
+        )}
+
     </DashboardCard>);
 }
  

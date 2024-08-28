@@ -70,3 +70,19 @@ export const SettingsSchema  = z.object({
         message: "The credit to be added cannot be negative",
         path:["creditToAdd"]
     });
+
+export const BuySchema = z.object({
+    sharesNumber: z.string().min(1)
+})
+    .refine((data) => {
+
+        if(Number(data.sharesNumber) < 1){
+            return false
+        }else{
+            return true ;
+        }
+
+        
+    },{message: "The number of shares must be greater than or equal to one",
+        path:["sharesNumber"]
+    })

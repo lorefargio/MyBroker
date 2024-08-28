@@ -17,3 +17,18 @@ export const getUserById = async (id:string | undefined) => {
         return null ;
     }
 };
+
+export const updateUserBalance = async (id: string | undefined, newcredit : number) => {
+    try {
+        await db.user.update({
+            where: {id},
+            data: {
+                credit : Number(newcredit.toFixed(2)) 
+            }
+        })
+
+        return {success : "balance updated"}
+    } catch (error) {
+        return null ;
+    }
+}
