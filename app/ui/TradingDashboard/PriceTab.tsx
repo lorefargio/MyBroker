@@ -19,7 +19,7 @@ const PriceTab = ({symbol, price, change, changePercent} : PriceTabProp) => {
         <div className="flex items-center justify-around">
 
             <div className=" text-sm md:text-2xl xl:text-4xl flex items-cente m-2">
-                ${price}
+                {price}$
             </div>
 
             <span className={`text-xs md:text-lg xl:text-xl 2xl:text-2xl ${change > 0 ? "text-lime-500" : "text-red-500"}`}>

@@ -6,6 +6,7 @@ import PriceTab from "./PriceTab";
 import Chart from "./Chart";
 import SymbolContext from "@/context/SymbolContext";
 import { fetchQuote} from "@/api/finnhub/stock-api";
+import { getCryptoQuote } from "@/api/twelvedata/crypto-quote";
 
 const Dashboard = () => {
     const {symbol} = useContext(SymbolContext) ;
@@ -40,8 +41,13 @@ const Dashboard = () => {
         };
 
         const updateSymbolOverview = async () => {
+            let result
             try {
-                const result = await fetchQuote(symbol.symbol) ;
+                if(symbol.instrument_type == "Digital Currency"){
+                    result = await getCryptoQuote(symbol.symbol) 
+                }else{
+                    result = await fetchQuote(symbol.symbol) ;
+                }
                 setQuote(result)
             } catch (error) {
                 setQuote(baseCaseQuote)
