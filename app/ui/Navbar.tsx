@@ -15,23 +15,10 @@ export const Navbar = () => {
     return (
         <header className="w-full bg-background">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <h1 className="text-2xl font-bold" >
-          MyBroker
-        </h1>
+          <h1 className="text-2xl font-bold" >
+              MyBroker
+          </h1>
         <nav className="hidden items-center gap-4 md:flex">
-
-            <Button
-                className="font-bold py-2 px-4 rounded-full"
-                asChild
-                variant={pathname == "/home" ? "default" : "outline"}>
-
-                    <Link href="/home"
-                     className="px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                     prefetch={false}>
-                    Home
-                    </Link>
-
-            </Button>
 
             <Button 
                 className="font-bold py-2 px-4 rounded-full"
@@ -72,20 +59,6 @@ export const Navbar = () => {
           </SheetTrigger>
           <SheetContent side="right">
             <div className="grid gap-4 p-4">
-
-                <Button
-                    className="font-bold py-2 px-4 rounded-full"
-                    asChild
-                    variant={pathname == "/home" ? "default" : "outline"}
-                >
-                    <Link
-                    href="/home"
-                    className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
-                    >
-                        Home
-                    </Link>
-                </Button>
 
                 <Button
                         className="font-bold py-2 px-4 rounded-full"

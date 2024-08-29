@@ -87,3 +87,17 @@ export const deleteStock = async (id : string, symbol : string | undefined) => {
 
     return {sucess : "stock deleted"}
 }
+
+export const getAllStocksByOwner = async (id : string | undefined) => {
+    if(!id) return null ;
+
+    try {
+        const stocks = await db.stock.findMany({
+            where : {ownerId : id}
+        })
+
+        return stocks ;
+    } catch (error) {
+        return null ;
+    }
+}

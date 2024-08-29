@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { TimeLine } from "../../app/ui/TradingDashboard/mockdata";
+import { Product, TimeLine } from "../../app/ui/TradingDashboard/mockdata";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -67,15 +67,27 @@ export function FormatMoney(credit : number | undefined) : string {
     let millionare = false ;
     let billionare = false ;
 
-    if(creditFixed > 1_000_000 && creditFixed < 1_000_000_000){
+    if(creditFixed >= 1_000_000 && creditFixed < 1_000_000_000){
         creditFixed = creditFixed/1_000_000 ;
         millionare = true ;
     }
 
-    if(creditFixed > 1_000_000_000 ){
+    if(creditFixed >= 1_000_000_000 ){
         creditFixed = creditFixed/1_000_000_000 ;
         billionare = true ;
     }
 
     return `${credit ? creditFixed.toFixed(2) : 0} ${millionare ? "M" : billionare ? "B" : ""}$`
+}
+
+export function FormatProduct (item : any) {
+    let prod : Product = {
+      id : item.id ,
+      symbol : item.symbol ,
+      quantity : item.quantity ,
+      money : item.money,
+    }
+
+    
+    return prod ;
 }

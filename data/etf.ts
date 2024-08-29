@@ -86,3 +86,17 @@ export const deleteEtf = async (id : string, symbol : string | undefined) => {
 
     return {sucess : "ETF deleted"}
 }
+
+export const getAllEtfByOwner = async (id : string | undefined) => {
+    if(!id) return null ;
+
+    try {
+        const etf = await db.eTF.findMany({
+            where : {ownerId : id}
+        })
+
+        return etf ;
+    } catch (error) {
+        return null ;
+    }
+}

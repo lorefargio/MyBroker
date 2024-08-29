@@ -29,10 +29,8 @@ export const Buy = async ({sharesNumber} : z.infer<typeof BuySchema>, price : nu
    if(user.credit < TotalPrice) return {error : "insufficient credit, add funds to continue purchase"}
 
    const portfolio = await getPortfolioById(user.id) ;
-
    
    if(!portfolio) return {error: "portfolio not found"}
-
 
    switch (symbolDetails.instrument_type) {
       case "Common Stock":

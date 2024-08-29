@@ -86,3 +86,17 @@ export const deleteCrypto = async (id : string, symbol : string | undefined) => 
 
     return {sucess : "crypto deleted"}
 }
+
+export const getAllCryptoByOwner = async (id : string | undefined) => {
+    if(!id) return null ;
+
+    try {
+        const crypto = await db.crypto.findMany({
+            where : {ownerId : id}
+        })
+
+        return crypto ;
+    } catch (error) {
+        return null ;
+    }
+}

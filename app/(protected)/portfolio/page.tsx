@@ -1,11 +1,10 @@
-import BuyCard from "../../ui/TradingDashboard/buy-card";
+import PortfolioOverview from "../../ui/portfolio/PortfolioOverview";
 
-const PortFolioPage = () => {
+const PortfolioPage = () => {
+    
     return ( 
-        <div className="w-[400px]">
-            <BuyCard symbol="AAPL" price={100}/>
-        </div>
+          <PortfolioOverview/>
     );
 }
  
-export default PortFolioPage;
+export default PortfolioPage;
