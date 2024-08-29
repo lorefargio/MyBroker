@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
-import {ChartData, mockStockQuote, MockTwelve, TimeLine} from "./mockdata";
-import { convertUnixTimestampToDate, convertDateToUnixTimestamp, getDates, FormatTimeLine,} from "@/lib/utils";
+import {ChartData} from "./mockdata";
+import {getDates, FormatTimeLine,} from "@/lib/utils";
 import {
     ResponsiveContainer,
     AreaChart,
