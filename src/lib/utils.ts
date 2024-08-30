@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { Product, TimeLine } from "../../app/ui/TradingDashboard/mockdata";
+import { Portfolio, TimeLine } from "../../app/ui/TradingDashboard/mockdata";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -77,17 +77,27 @@ export function FormatMoney(credit : number | undefined) : string {
         billionare = true ;
     }
 
-    return `${credit ? creditFixed.toFixed(2) : 0} ${millionare ? "M" : billionare ? "B" : ""}$`
+    return `${credit ? creditFixed.toFixed(2) : 0} ${millionare ? " M" : billionare ? " B" : ""}$`
 }
 
-export function FormatProduct (item : any) {
-    let prod : Product = {
-      id : item.id ,
-      symbol : item.symbol ,
-      quantity : item.quantity ,
-      money : item.money,
-    }
+export function addUpAllMoney (portfolio : Portfolio) : {moneySpent : number, CurrentTotalValue : number} {
+  let moneySpent = 0 ;
+  let CurrentTotalValue = 0 ;
 
-    
-    return prod ;
+  for(let stock of portfolio.stocks){
+    moneySpent += stock.money ;
+    CurrentTotalValue += stock.quantity * stock.current_value! ;
+  }
+
+  for(let etf of portfolio.etfs){
+    moneySpent += etf.money ;
+    CurrentTotalValue += etf.quantity * etf.current_value! ;
+  }
+
+  for(let token of portfolio.crypto){
+    moneySpent += token.money ;
+    CurrentTotalValue += token.quantity * token.current_value! ;
+  }
+
+  return {moneySpent,CurrentTotalValue} ;
 }
