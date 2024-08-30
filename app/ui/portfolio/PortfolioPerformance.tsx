@@ -32,7 +32,7 @@ const PortfolioPerformance = ({portfolio} : {portfolio : Portfolio}) => {
 
                 <div>
                     <span>The current overall return of your portfolio is : </span>
-                    <span className={CurrentTotalValue > moneySpent ? "text-lime-500" : "text-red-500"}>{(((CurrentTotalValue - moneySpent)/moneySpent)*100).toFixed(2)} %</span>
+                    <span className={CurrentTotalValue > moneySpent ? "text-lime-500" : "text-red-500"}>{moneySpent ? (((CurrentTotalValue - moneySpent)/moneySpent)*100).toFixed(2) : 0} %</span>
                 </div>
             </div>
 

@@ -10,9 +10,10 @@ export const sendVerificationEmail = async (
     const confirmLink = `${domain}/auth/new-verification?token=${token}`
 
     await resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
+        from: "MyBroker <mail@mybroker.store>",
         to: email,
         subject: "Confirm your email",
+        
         html: `<div class="bg-white p-6">
             <header class="mb-6">
             <h1 class="text-2xl font-bold text-black">MyBroker</h1>
@@ -28,9 +29,10 @@ export const sendPasswordResetEmail = async (
     const resetLink = `${domain}/auth/new-password?token=${token}` ;
 
     await resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
+        from: "MyBroker <mail@mybroker.store>",
         to: email,
         subject: "Reset your password",
+
         html: `<div class="bg-white p-6">
             <header class="mb-6">
             <h1 class="text-2xl font-bold text-black">MyBroker</h1>
@@ -43,10 +45,10 @@ export const sendPasswordResetEmail = async (
 
 export const sendTwoFactorTokenEmail = async (email : string, token : string) => {
     await resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
+        from: "MyBroker <mail@mybroker.store>",
         to: email,
         subject: "2FA code",
-        //html: `<p>Click <a href="${resetLink}">here</a> to reset your password</p>`
+        
         html: `<div class="bg-white p-6">
             <header class="mb-6">
             <h1 class="text-2xl font-bold text-black">MyBroker</h1>
