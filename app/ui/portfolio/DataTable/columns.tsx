@@ -48,7 +48,7 @@ export const columns: ColumnDef<Product>[] = [
             const shares = row.getValue<number>("quantity") ;
             const Yield = row.getValue<number>("change") ;
             return (
-                <div className={!current_value ? "" : ((current_value * shares) > money ) ? "text-lime-500" : "text-red-500"}>
+                <div className={(!current_value || Yield == 0 ? "" : ((current_value * shares) > money ) ? "text-lime-500" : "text-red-500")}>
                   {current_value && (Yield)} %
                 </div>
             );

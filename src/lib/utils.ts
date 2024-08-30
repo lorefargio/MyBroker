@@ -63,21 +63,23 @@ export function FormatTimeLine(startDate : string, timeLine : TimeLine) : TimeLi
 } 
 
 export function FormatMoney(credit : number | undefined) : string {
-    let creditFixed = Number(credit)
-    let millionare = false ;
-    let billionare = false ;
+  let creditFixed = 0
+  let millionare = false ;
+  let billionare = false ;
 
-    if(creditFixed >= 1_000_000 && creditFixed < 1_000_000_000){
-        creditFixed = creditFixed/1_000_000 ;
-        millionare = true ;
-    }
+  if(credit) creditFixed = credit 
 
-    if(creditFixed >= 1_000_000_000 ){
-        creditFixed = creditFixed/1_000_000_000 ;
-        billionare = true ;
-    }
+  if(creditFixed >= 100_000 && creditFixed < 1_000_000_000){
+    creditFixed = creditFixed/1_000_000 ;
+    millionare = true ;
+  }
 
-    return `${credit ? creditFixed.toFixed(2) : 0} ${millionare ? " M" : billionare ? " B" : ""}$`
+  if(creditFixed >= 1_000_000_000 ){
+    creditFixed = creditFixed/1_000_000_000 ;
+    billionare = true ;
+  }
+
+  return `${credit ? creditFixed.toFixed(3) : 0} ${millionare ? " M" : billionare ? " B" : ""}$`
 }
 
 export function addUpAllMoney (portfolio : Portfolio) : {moneySpent : number, CurrentTotalValue : number} {
