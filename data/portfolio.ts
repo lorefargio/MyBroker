@@ -3,7 +3,6 @@ import { getAllStocksByOwner } from "./stock";
 import { getAllCryptoByOwner } from "./crypto";
 import { getAllEtfByOwner } from "./etf";
 import { Portfolio , Product} from "../app/ui/TradingDashboard/mockdata";
-import { FormatProduct } from "@/lib/utils";
 
 export const getPortfolioById = async (id : string | undefined) => {
     try {
