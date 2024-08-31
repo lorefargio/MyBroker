@@ -7,7 +7,7 @@ interface ProtectedLayoutProps {
     children: React.ReactNode;
 };
 
-export default function ProtectedLayout({children} : ProtectedLayoutProps) {
+export default async function ProtectedLayout({children} : ProtectedLayoutProps) {
     const session = await auth() ;
     return (
         
