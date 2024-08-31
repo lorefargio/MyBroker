@@ -4,7 +4,6 @@ import { Portfolio } from "../TradingDashboard/mockdata";
 import { addUpAllMoney, FormatMoney } from "@/lib/utils";
 
 
-
 const PortfolioPerformance = ({portfolio} : {portfolio : Portfolio}) => {
     const user = useCurrentUser()
     const {moneySpent,CurrentTotalValue} = addUpAllMoney(portfolio) ;

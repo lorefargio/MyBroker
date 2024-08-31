@@ -45,7 +45,7 @@ model User {
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
   portfolio             Portfolio? 
-  
+  pushSubscription String?
 
   @@map("users")
 }

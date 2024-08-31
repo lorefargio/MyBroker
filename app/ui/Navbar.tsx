@@ -3,9 +3,10 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link"
 import { usePathname } from "next/navigation";
-import { UserButton, BalanceButton } from "./button";
+import { UserButton} from "./button";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import {Menu} from "lucide-react"
+import NotificationRequest from "./notification";
 
 
 export const Navbar = () => {
@@ -49,6 +50,8 @@ export const Navbar = () => {
             </Button>
 
             <UserButton/>
+
+            <NotificationRequest/>
         </nav>
         <Sheet>
           <SheetTrigger asChild>

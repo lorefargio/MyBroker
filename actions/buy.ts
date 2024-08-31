@@ -11,6 +11,7 @@ import { createStock, getStocksByOwnerAndSymbol, updateStockDetails } from "../d
 import { createCrypto, getCryptoByOwnerAndSymbol, updateCryptoDetails } from "../data/crypto";
 import { createEtf, getEtfByOwnerAndSymbol, updateEtfDetails } from "../data/etf";
 import { FormatMoney } from "@/lib/utils";
+import { sendNotification } from "./notification";
 
 export const Buy = async ({sharesNumber} : z.infer<typeof BuySchema>, price : number, symbolDetails : DetailsInterface) => {
    const TotalPrice = Number((Number(sharesNumber) * price).toFixed(2))
@@ -95,6 +96,10 @@ export const Buy = async ({sharesNumber} : z.infer<typeof BuySchema>, price : nu
    const response = await updateUserBalance(user.id,user.credit - TotalPrice) ;
 
    if(!response) return {error: "error updating balance"}
+
+   const res = await sendNotification(`Congratulation you buy ${sharesNumber} of : ${symbolDetails.symbol}`,user.id!,`credit spent : ${TotalPrice}$`)
+
+   if(res.error) return {error : "error during Sendnotification"}
 
    return {success : `Purchase completed for ${FormatMoney(TotalPrice)} `}
 }

@@ -18,6 +18,7 @@ import { Buy } from "../../../actions/buy";
 import SymbolContext from "@/context/SymbolContext";
 import { BalanceButton } from "../button";
 import { useCurrentUser } from "../../../hooks/use-current-user";
+import { sendNotification } from "../../../actions/notification";
 
 
 const BuyCard = ( {price} : {price : number}) => {
@@ -56,11 +57,9 @@ const BuyCard = ( {price} : {price : number}) => {
           
         })
           .catch(() => setError("Something went wrong")) ;
-         
       })
 
     }
-
 
     return ( 
         <div className="flex flex-col justify-around h-full w-full mt-2">
