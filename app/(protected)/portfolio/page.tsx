@@ -1,7 +1,7 @@
 "use client"
 
 import PortfolioOverview from "../../ui/portfolio/PortfolioOverview";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import { getPortfolio } from "../../../actions/portfolio";
 import { Portfolio } from "./../../ui/TradingDashboard/mockdata"
 
@@ -12,23 +12,25 @@ const PortfolioPage = () => {
         crypto : [],
     }
     const [data, setData] = useState<Portfolio>(baseCasePortfolio) ;
-
+    const [isPending, startTransition] = useTransition() ;
     useEffect(() => {
-        const getportfolio = async () => {
-            try {
-                const response = await getPortfolio()
-            
-                setData(response) ;   
-            } catch (error) {
-                console.log(error)
-                setData(baseCasePortfolio) ;
+        startTransition(() => {
+            const getportfolio = async () => {
+                try {
+                    const response = await getPortfolio()
+                
+                    setData(response) ;   
+                } catch (error) {
+                    console.log(error)
+                    setData(baseCasePortfolio) ;
+                }
             }
-        }
-
-        getportfolio()
+    
+            getportfolio()
+        })
     },[])
     return ( 
-          <PortfolioOverview data={data}/>
+          <PortfolioOverview data={data} isPending={isPending}/>
     );
 }
  

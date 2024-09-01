@@ -98,7 +98,7 @@ export const Buy = async ({sharesNumber} : z.infer<typeof BuySchema>, price : nu
    if(!response) return {error: "error updating balance"}
 
    const res = await sendNotification(`Congratulation you buy ${sharesNumber} of : ${symbolDetails.symbol}`,user.id!,`credit spent : ${TotalPrice}$`)
-
+   console.log("send notification response",res)
    if(res.error) return {error : "error during Sendnotification"}
 
    return {success : `Purchase completed for ${FormatMoney(TotalPrice)} `}

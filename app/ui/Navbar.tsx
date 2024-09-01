@@ -91,10 +91,14 @@ export const Navbar = () => {
                         </Link>
                 </Button>
 
+                <div className="flex justify-center">
+                  <NotificationRequest/>
+                </div>
 
                 <div className="flex justify-center">
                   <UserButton/>
                 </div>
+            
               
             </div>
           </SheetContent>
