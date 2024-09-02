@@ -38,7 +38,6 @@ const Modal = ({children, isOpen, handleClose} : BuyModalProp) => {
 
     return (
         <ReactPortal wrapperId="react-portal-modal-container">
-            <>
                 <div className="fixed top-0 left-0 z-40 w-screen h-screen bg-slate-100/70 ">
                     <div className="fixed rounded flex flex-col box-border min-w-fit p-5 inset-y-32 inset-x-2 md:inset-x-96">
                         <div className="w-full h-full rounded-md flex flex-col items-center relative p-8 bg-white shadow-md overflow-auto">
@@ -49,8 +48,7 @@ const Modal = ({children, isOpen, handleClose} : BuyModalProp) => {
                             <div className="box-border h-5/6">{children}</div>
                         </div>
                     </div>
-                </div>
-            </>
+                </div> 
         </ReactPortal>
     )
 }

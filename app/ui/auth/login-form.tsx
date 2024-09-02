@@ -31,7 +31,7 @@ const SearchParamsError: React.FC<{ children: (urlError: string) => React.ReactN
       ? "Email already in use with different provider" 
       : "";
 
-  return <>{children(urlError)}</>; // Passa l'errore ai componenti figli
+  return <>{children(urlError)}</>; // bring the error to the child components
 };
 
 

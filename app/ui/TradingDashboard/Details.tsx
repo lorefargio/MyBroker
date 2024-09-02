@@ -8,7 +8,6 @@ const detailsList : DetailsInterface = {
     instrument_type: "Instrument type",
     mic_code: ""
 }
-// da aggiustare quando connessa api  levare any e far arrivare i dati direttamente secondo l'interfaccia 
 
 const Details = ({details}: {details : DetailsInterface}) => {
     

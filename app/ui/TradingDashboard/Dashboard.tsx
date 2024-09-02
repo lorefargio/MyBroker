@@ -8,6 +8,7 @@ import SymbolContext from "@/context/SymbolContext";
 import { fetchQuote} from "@/api/finnhub/stock-api";
 import { getCryptoQuote } from "@/api/twelvedata/crypto-quote";
 
+
 const Dashboard = () => {
     const {symbol} = useContext(SymbolContext) ;
     
@@ -29,6 +30,7 @@ const Dashboard = () => {
 
     const [symbolDetails, setSymbolDetails] = useState<DetailsInterface>(baseCaseSymbolDetails) ;
     const [quote, setQuote] = useState<PriceTabInterface>(baseCaseQuote) ;
+
 
     useEffect(() => {
         const updateSymbolDetails = async () => {

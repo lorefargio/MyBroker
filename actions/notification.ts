@@ -19,15 +19,17 @@ export const sendNotification = async (message : string, userId : string, name:s
     
     if(!data) return {error: "error during the fetch of the pushSubscription"}
 
+    const payload = JSON.stringify({ title: message, body: name });
+
     try {
-        const res = await webpush.sendNotification(
+        await webpush.sendNotification(
             data,
-            message,
+            payload,
         );
-        console.log("response gg",res)
+        
         return {sucess : "notification send correctly"};
     } catch (e) {
-        console.log(e)
         return { error: "failed to send notification" };
     }
+
 }

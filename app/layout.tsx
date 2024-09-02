@@ -2,7 +2,6 @@ import { Inter } from 'next/font/google'
 import type { Metadata } from 'next';
 import './globals.css'
 
-
 const fontHeading = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -14,13 +13,11 @@ export const metadata: Metadata = {
   manifest : "/manifest.json"
 };
 
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  
   return (
     
     <html lang="en">

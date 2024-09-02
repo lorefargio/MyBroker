@@ -29,7 +29,7 @@ const SellCard = ({price} : {price : number}) => {
     const form = useForm<z.infer<typeof BuySchema>>({
       resolver: zodResolver(BuySchema),
       defaultValues : {
-        sharesNumber:"",
+        sharesNumber:0,
       },
     }) ;
 
@@ -74,9 +74,9 @@ const SellCard = ({price} : {price : number}) => {
                             render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Number Of Shares</FormLabel>
-                                <FormDescription>
+                          
                                   <BalanceButton credit={user?.credit}/>
-                                </FormDescription>
+                                
                                 <FormControl>
                                 <Input
                                     {...field}

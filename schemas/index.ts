@@ -72,9 +72,10 @@ export const SettingsSchema  = z.object({
     });
 
 export const BuySchema = z.object({
-    sharesNumber: z.string().min(1)
+    sharesNumber: z.optional(z.string().transform((val) => parseInt(val)))
 })
     .refine((data) => {
+        
 
         if(Number(data.sharesNumber) < 1){
             return false

@@ -1,10 +1,15 @@
-self.addEventListener("push", async (e) => {
-	const { message, body } = JSON.parse(e.data.text());
+self.addEventListener('push', function(event) {
 
-	e.waitUntil(
-		self.registration.showNotification(message, {
-			body,
-		})
+	// get payload data
+	const data = event.data ? event.data.json() : {};
+  
+	const options = {
+	  body: data.body ,
+	};
+	
+	//show notification
+	event.waitUntil(
+	  self.registration.showNotification(data.title || 'Titolo di Test', options)
 	);
 });
 

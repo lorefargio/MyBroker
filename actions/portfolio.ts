@@ -5,6 +5,8 @@ import { getAllPortfolioProduct, getPortfolioById } from "../data/portfolio";
 import { fetchQuote } from "@/api/finnhub/stock-api";
 import { getCryptoQuote } from "@/api/twelvedata/crypto-quote";
 
+//function that returns the user's portfolio containing all the assets he owns
+
 export const getPortfolio = async () => {
    const user = await currentUser() ;
 

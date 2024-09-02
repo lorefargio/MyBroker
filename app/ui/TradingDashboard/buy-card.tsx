@@ -18,7 +18,6 @@ import { Buy } from "../../../actions/buy";
 import SymbolContext from "@/context/SymbolContext";
 import { BalanceButton } from "../button";
 import { useCurrentUser } from "../../../hooks/use-current-user";
-import { sendNotification } from "../../../actions/notification";
 
 
 const BuyCard = ( {price} : {price : number}) => {
@@ -33,7 +32,7 @@ const BuyCard = ( {price} : {price : number}) => {
     const form = useForm<z.infer<typeof BuySchema>>({
       resolver: zodResolver(BuySchema),
       defaultValues : {
-        sharesNumber:"",
+        sharesNumber: 0,
       },
     }) ;
 
@@ -76,9 +75,9 @@ const BuyCard = ( {price} : {price : number}) => {
                             render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Number Of Shares</FormLabel>
-                                <FormDescription>
+                                
                                   <BalanceButton credit={user?.credit}/>
-                                </FormDescription>
+                               
                                 <FormControl>
                                 <Input
                                     {...field}

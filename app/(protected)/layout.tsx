@@ -9,6 +9,7 @@ interface ProtectedLayoutProps {
 
 export default async function ProtectedLayout({children} : ProtectedLayoutProps) {
     const session = await auth() ;
+  
     return (
         
         <SessionProvider session={session}>

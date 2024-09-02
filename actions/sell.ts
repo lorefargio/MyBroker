@@ -15,6 +15,8 @@ import { deleteCrypto, getCryptoByOwnerAndSymbol, updateCryptoDetails } from "..
 
 import { sendNotification } from "./notification";
 
+//function that deletes the sold asset from the portfolio and updates the user credit
+
 export const Sell = async ({sharesNumber} : z.infer<typeof BuySchema>, price : number, symbolDetails : DetailsInterface) => {
 
    const shares = Number(sharesNumber)

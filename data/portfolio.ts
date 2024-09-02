@@ -2,7 +2,7 @@ import { db } from "@/lib/db";
 import { getAllStocksByOwner } from "./stock";
 import { getAllCryptoByOwner } from "./crypto";
 import { getAllEtfByOwner } from "./etf";
-import { Portfolio , Product} from "../app/ui/TradingDashboard/mockdata";
+import { Portfolio} from "../app/ui/TradingDashboard/mockdata";
 
 export const getPortfolioById = async (id : string | undefined) => {
     try {
