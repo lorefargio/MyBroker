@@ -12,6 +12,11 @@ After the purchase, the asset is added to your portfolio and the performance of 
 
 Creating an account using Google or Github is the easiest way to access the app, but you can also register using your email and password.
 
+## Installation and project start-up
+
+After downloading the repository, run npm i in the command line to install the project's packages.
+Attention: this project needs API keys to work, which are not provided in the repository
+
 ## Technology Stack
 
 | Tech    | Utility |
