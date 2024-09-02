@@ -16,6 +16,8 @@ Creating an account using Google or Github is the easiest way to access the app,
 
 After downloading the repository, run "npm i" in the command line to install the project's packages, after that you can start the application with "npm run dev"
 
+To enable the receipt of push notifications, check that your browser notifications are enabled and enable app notifications using the bell located in the navabar
+
 **Attention: this project needs API keys to work, which are not provided in the repository**
 
 ## Technology Stack
