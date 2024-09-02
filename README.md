@@ -14,9 +14,9 @@ Creating an account using Google or Github is the easiest way to access the app,
 
 ## Installation and project start-up
 
-After downloading the repository, run "npm i" in the command line to install the project's packages.
+After downloading the repository, run "npm i" in the command line to install the project's packages, after that you can start the application with "npm run dev"
 
-Attention: this project needs API keys to work, which are not provided in the repository
+**Attention: this project needs API keys to work, which are not provided in the repository**
 
 ## Technology Stack
 
