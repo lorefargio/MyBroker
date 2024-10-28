@@ -66,8 +66,14 @@ export function FormatMoney(credit : number | undefined) : string {
   let creditFixed = 0
   let millionare = false ;
   let billionare = false ;
+  let k = false ;
 
   if(credit) creditFixed = credit 
+
+  if(creditFixed >= 1000 && creditFixed < 100_000){
+    creditFixed = creditFixed / 1000
+    k = true ;
+  }
 
   if(creditFixed >= 100_000 && creditFixed < 1_000_000_000){
     creditFixed = creditFixed/1_000_000 ;
@@ -79,7 +85,7 @@ export function FormatMoney(credit : number | undefined) : string {
     billionare = true ;
   }
 
-  return `${credit ? creditFixed.toFixed(3) : 0} ${millionare ? " M" : billionare ? " B" : ""}$`
+  return `${credit ? creditFixed.toFixed(3) : 0} ${millionare ? " M" : billionare ? " B" : k ? " K" : " "}$`
 }
 
 export function addUpAllMoney (portfolio : Portfolio) : {moneySpent : number, CurrentTotalValue : number} {
