@@ -85,7 +85,7 @@ export function FormatMoney(credit : number | undefined) : string {
     billionare = true ;
   }
 
-  return `${credit ? creditFixed.toFixed(3) : 0} ${millionare ? " M" : billionare ? " B" : k ? " K" : " "}$`
+  return `${credit ? creditFixed.toFixed(3) : 0} ${millionare ? " M" : billionare ? " B" : k ? " K" : " "} $`
 }
 
 export function addUpAllMoney (portfolio : Portfolio) : {moneySpent : number, CurrentTotalValue : number} {
