@@ -31,7 +31,7 @@ export const sendPasswordResetEmail = async (
     await resend.emails.send({
         from: "MyBroker <mail@mybroker.store>",
         to: email,
-        subject: "Reset your password",
+        subject: "Reset your password vaffanculo",
 
         html: `<div class="bg-white p-6">
             <header class="mb-6">
